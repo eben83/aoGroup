@@ -23,7 +23,7 @@ const Nav = () => {
             {/* Navbar (sit on top) */}
             <div className="w3-top">
             <div className="w3-bar w3-white w3-card" id="myNavbar">
-                <a href="#home" className="w3-bar-item w3-button w3-wide">LOGO</a>
+                <a href="/" className="w3-bar-item w3-button w3-wide">LOGO</a>
                 {/* Right-sided navbar links */}
                 <div className="w3-right w3-hide-small">
                 <a href="/work" className="w3-bar-item w3-button"><i className="fa fa-th"></i> WORK</a>
