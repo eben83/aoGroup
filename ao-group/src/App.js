@@ -1,16 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Nav from './components/nav';
-import Header from './components/header'
 import Footer from './components/footer'
+import Home from './pages/home';
+import Work from './pages/work'
+import Contact from './pages/contact'
 
-function App() {
+const App = () => {
   return (
 
     <>
-      <Nav />
-      <Header />
-      <Footer />
+      <BrowserRouter>
+        <Nav />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/work' component={Work} />
+          <Route path='/contact' component={Contact} />
+        </Switch>
+        <Footer />
+      </BrowserRouter>
     </>
 
   );
