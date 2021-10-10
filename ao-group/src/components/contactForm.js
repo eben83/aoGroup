@@ -1,7 +1,8 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-const ContactForm = () => {
+
+const ContactForm = ({toggleModal, heading, content, isModalOpen}) => {
     return (
         <>
              <Formik 
@@ -10,8 +11,22 @@ const ContactForm = () => {
                     console.log(data)
                     resetForm()
                 }}
+                validate={values => {
+                    const errors = {}
+                    if(!values.name || !values.email || !values.mobile) {
+                        errors.name = "You must have a name?"
+                        errors.email = "Required"
+                        errors.mobile = "How will we chat?"
+                    } else if(
+                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                    )
+                    {
+                        errors.email = "invalid email"
+                    }
+                    return errors
+                }}
             >
-                {({values, handleChange, handleBlur, handleSubmit}) => (
+                {({values, handleSubmit}) => (
                 <Form onSubmit={handleSubmit}>
                     <div className='d-flex justify-content-center'>
                         <div className='p-5'>
@@ -36,10 +51,11 @@ const ContactForm = () => {
                                     name='mobile'
                                     placeholder='Mobile Number'/>
                             </div>
-                            <div className='btn btn-primary d-flex justify-content-center' type='submit'onClick={handleSubmit}>Submit</div>
+                            <div className='btn btn-primary' onClick={toggleModal} >
+                                Submit
+                            </div>
                         </div>
                     </div>
-                         <pre>{JSON.stringify(values, null, 2)}</pre> {/* shows data on screen..  */}
                 </Form>
             )}</Formik>
         </>
