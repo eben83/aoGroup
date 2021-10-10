@@ -3,10 +3,11 @@ import ContactForm from "../components/contactForm";
 import ContactModal from "../components/contactModal";
 
 
-const Contact = ({heading, content}) => {
+const Contact = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
     const toggleModal = () => setIsModalOpen(!isModalOpen)
+    
 
     return (
         <>
@@ -21,8 +22,8 @@ const Contact = ({heading, content}) => {
             <ContactModal 
                 toggleModal={toggleModal}
                 isModalOpen={isModalOpen}
-                modalHeading={heading}
-                modalContent={content}
+                // modalHeading={heading}
+                // modalContent={content}
                 isModalOpen={isModalOpen}
             />  
                
