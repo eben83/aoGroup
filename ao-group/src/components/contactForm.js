@@ -18,6 +18,10 @@ const ContactForm = ({toggleModal, isModalOpen, firstName, email, mobile}) => {
         })
     }
 
+    const modalFunction = () => {
+        toggleModal()
+    }
+
 
     return (
         <>
@@ -27,12 +31,11 @@ const ContactForm = ({toggleModal, isModalOpen, firstName, email, mobile}) => {
                     console.log("submit: ", data)
                     dispatch(addToModalContent(data))
                     resetForm();
-                    
                 }}
             >
 
                 {({values, handleSubmit}) => (
-                <Form onSubmit={handleSubmit, addToModalContent}>
+                <Form onSubmit={handleSubmit}>
                     <div className='d-flex justify-content-center'>
                         <div className='p-5'>
                             <div className='p-3'>
