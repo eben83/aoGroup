@@ -6,7 +6,7 @@ const reducer = (state, action) => {
     console.log('action', action)
 
     switch (action.type) {
-        case 'ADD_TO_MODAL_CONTENT':
+        case 'ADD_TO_MODAL':
             return {
                 ...state,
                 content: [{...state.content}, action.item]
