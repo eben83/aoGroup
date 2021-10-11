@@ -6,7 +6,7 @@ const DisplayData = ({firstName, lastName, mobile}) => {
             <p>Your name is:</p>
             <h5>{firstName}</h5>
 
-            <p>Your email address is:</p>
+            <p>Your last name is:</p>
             <h5>{lastName}</h5>
 
             <p>Your mobile number is:</p>

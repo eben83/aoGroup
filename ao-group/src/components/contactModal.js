@@ -20,7 +20,7 @@ const ContactModal = ({toggleModal, isModalOpen, modalHeading, modalContent}) =>
                         {content
                         .filter(item => item.firstName && item.mobile && item.lastName !== undefined)
                         .map(item => (
-                            <DisplayData 
+                            <DisplayData
                                 firstName={item.firstName}
                                 lastName={item.lastName}
                                 mobile={item.mobile}/>
