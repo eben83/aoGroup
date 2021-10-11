@@ -15,7 +15,12 @@ const Nav = () => {
         
         // Close the sidebar with the close button
         function w3_close() {
-            mySidebar.style.display = "none";
+            mySidebar.style.display = "invisible";
+        }
+
+        const [isOpen, setIsOpen] = useState(false)
+        const toggle = () => {
+            setIsOpen(!isOpen)
         }
 
     return (
@@ -33,21 +38,21 @@ const Nav = () => {
 
                 {/* Hide right-floated links on small screens and replace them with a menu icon */}
 
-                <a href="javascript:void(0)" className="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onClick={w3_close ? w3_open : w3_close}>
+                <a href="" className="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onClick={w3_open ? w3_close : w3_open}>
                 <i className="fa fa-bars"></i>
                 </a>
             </div>
             </div>
 
             {/* Sidebar on small screens when clicking the menu icon */}
-            <nav className="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"  id="mySidebar">
-            <a href="javascript:void(0)" className="w3-bar-item w3-button w3-large w3-padding-16" onClick={w3_open ? w3_close : w3_open}>Close ×</a>
+            {/* <nav className="w3-sidebar w3-width w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"  id="mySidebar">
+            <a href="javascript:void(0)" className="w3-bar-item w3-button w3-large w3-padding-16" onClick={toggle}>Close ×</a>
             <a href="#about" onClick={() => w3_close} className="w3-bar-item w3-button">ABOUT</a>
             <a href="#team" onClick={() => w3_close} className="w3-bar-item w3-button">TEAM</a>
             <a href="#work" onClick={() => w3_close} className="w3-bar-item w3-button">WORK</a>
             <a href="#pricing" onClick={() => w3_close} className="w3-bar-item w3-button">PRICING</a>
             <a href="#contact" onClick={() => w3_close} className="w3-bar-item w3-button">CONTACT</a>
-            </nav>
+            </nav> */}
         </>
     )
 }

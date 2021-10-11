@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import ContactForm from "../components/contactForm";
 import ContactModal from "../components/contactModal";
+import Heading from "../components/heading";
 
 
 const Contact = () => {
@@ -11,10 +12,8 @@ const Contact = () => {
 
     return (
         <>
-            <div className="w3-container" style={{padding:"100px 16px"}} id="contact">
-                <h3 className="w3-center">Contact</h3>
-                <p className="w3-center w3-large">Want to talk?</p>
-            </div>
+            <Heading title='Contact' text='Wana talk?'/>
+
             <ContactForm
                 toggleModal={toggleModal}
                 isModalOpen={isModalOpen}
@@ -22,8 +21,6 @@ const Contact = () => {
             <ContactModal 
                 toggleModal={toggleModal}
                 isModalOpen={isModalOpen}
-                // modalHeading={heading}
-                // modalContent={content}
                 isModalOpen={isModalOpen}
             />  
                
