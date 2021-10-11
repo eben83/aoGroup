@@ -1,15 +1,13 @@
 import React from "react";
 
-const DisplayData = ({id, name, email, mobile}) => {
+const DisplayData = ({firstName, lastName, mobile}) => {
     return (
         <>
-            {id}
-            
             <p>Your name is:</p>
-            <h5>{name}</h5>
+            <h5>{firstName}</h5>
 
             <p>Your email address is:</p>
-            <h5>{email}</h5>
+            <h5>{lastName}</h5>
 
             <p>Your mobile number is:</p>
             <h5>{mobile}</h5>

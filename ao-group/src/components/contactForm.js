@@ -3,32 +3,31 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useStateValue } from "../stateProvider";
 
 
-const ContactForm = ({toggleModal, isModalOpen, firstName, email, mobile}) => {
+const ContactForm = ({toggleModal, isModalOpen, firstName, lastName, mobile}) => {
 
     const [{ content }, dispatch] = useStateValue()
 
-    const addToModalContent = ({firstName, email, mobile}) => {
+    const addToModalContent = ({firstName, lastName, mobile}) => {
         dispatch ({
             type: 'ADD_TO_MODAL',
             item : {
                 firstName: firstName,
-                email: email,
+                lastName: lastName,
                 mobile: mobile,
             }
         })
+        if(firstName && lastName && mobile) {
+            toggleModal()
+        } 
     }
 
-    const modalFunction = () => {
-        toggleModal()
-    }
 
 
     return (
         <>
              <Formik 
-                initialValues={{firstName: '', email: '', mobile: ''}}
+                initialValues={{firstName: '', lastName: '', mobile: ''}}
                 onSubmit={(data, {resetForm, dispatch}) => {
-                    console.log("submit: ", data)
                     dispatch(addToModalContent(data))
                     resetForm();
                 }}
@@ -47,10 +46,10 @@ const ContactForm = ({toggleModal, isModalOpen, firstName, email, mobile}) => {
                             </div>
                             <div className='p-3'>
                                 <Field 
-                                    values={values.email} 
-                                    type='email' 
-                                    name='email' 
-                                    placeholder='Email'/>
+                                    values={values.lastName} 
+                                    type='input' 
+                                    name='lastName' 
+                                    placeholder='Last Name'/>
                             </div>
                             <div className='p-3 '>
                                 <Field 
@@ -59,12 +58,11 @@ const ContactForm = ({toggleModal, isModalOpen, firstName, email, mobile}) => {
                                     name='mobile'
                                     placeholder='Mobile Number'/>
                             </div>
-                            <div className='btn btn-primary' onClick={handleSubmit}>
+                            <button className='btn btn-primary' onClick={handleSubmit} >
                                 Submit
-                            </div>
+                            </button>
                         </div>
                     </div>
-                    <pre>{JSON.stringify(values, null, 2)}</pre>
                 </Form>
             )}</Formik>
         </>

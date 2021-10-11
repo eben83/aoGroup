@@ -1,5 +1,5 @@
 export const initialState = {
-    content: {}
+    content: [{}]
 }
 
 const reducer = (state, action) => {

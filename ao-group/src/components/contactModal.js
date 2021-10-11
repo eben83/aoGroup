@@ -16,11 +16,21 @@ const ContactModal = ({toggleModal, isModalOpen, modalHeading, modalContent}) =>
                 </ModalHeader>
                 <ModalBody>
                     <div className='row align-items-center'>
-                        <h1>this is a test</h1>                      
+                        {/* <h1>this is a test</h1> */}
+                        {content
+                        .filter(item => item.firstName && item.mobile && item.lastName !== undefined)
+                        .map(item => (
+                            <DisplayData 
+                                firstName={item.firstName}
+                                lastName={item.lastName}
+                                mobile={item.mobile}/>
+                        ))}
                     </div>
                 </ModalBody>
             </Modal>
         </>
     )
 }
+
+
 export default ContactModal
