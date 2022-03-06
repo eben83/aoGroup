@@ -1,10 +1,10 @@
 import React from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { useStateValue } from "../stateProvider";
 import DisplayData from './displayData'
 
 
-const ContactModal = ({toggleModal, isModalOpen, modalHeading, modalContent}) => {
+const ContactModal = ({ toggleModal, isModalOpen }) => {
 
     const [{content}] = useStateValue()
     return (

@@ -1,21 +1,17 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useStateValue } from "../stateProvider";
+import {useDispatch, useSelector} from "react-redux";
+import { updateContact } from "../features/contatct/contactSlice";
 
 
-const ContactForm = ({toggleModal, isModalOpen, firstName, lastName, mobile}) => {
+const ContactForm = ({toggleModal, isModalOpen }) => {
 
-    const [{ content }, dispatch] = useStateValue()
+    const { firstName, lastName, mobile } = useSelector((state) => state.contact)
+    const dispatch = useDispatch()
+    // const [{ content }, dispatch] = useStateValue()
 
     const addToModalContent = ({firstName, lastName, mobile}) => {
-        dispatch ({
-            type: 'ADD_TO_MODAL',
-            item : {
-                firstName: firstName,
-                lastName: lastName,
-                mobile: mobile,
-            }
-        })
+        dispatch (updateContact())
         if(firstName && lastName && mobile) {
             toggleModal()
         } 
@@ -26,15 +22,15 @@ const ContactForm = ({toggleModal, isModalOpen, firstName, lastName, mobile}) =>
     return (
         <>
              <Formik 
-                initialValues={{firstName: '', lastName: '', mobile: ''}}
+                initialValues={{firstName, lastName, mobile}}
                 onSubmit={(data, {resetForm, dispatch}) => {
-                    dispatch(addToModalContent(data))
-                    resetForm();
+                //     dispatch(addToModalContent(data))
+                //     resetForm();
                 }}
             >
 
-                {({values, handleSubmit}) => (
-                <Form onSubmit={handleSubmit}>
+                {({values}) => (
+                <Form>
                     <div className='d-flex justify-content-center'>
                         <div className='p-5'>
                             <div className='p-3'>
@@ -58,7 +54,7 @@ const ContactForm = ({toggleModal, isModalOpen, firstName, lastName, mobile}) =>
                                     name='mobile'
                                     placeholder='Mobile Number'/>
                             </div>
-                            <button className='btn btn-primary' onClick={handleSubmit} >
+                            <button type='button' className='btn btn-primary' onClick={() => dispatch(updateContact())} >
                                 Submit
                             </button>
                         </div>
