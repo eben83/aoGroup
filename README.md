@@ -1,16 +1,16 @@
-#AO Project
+# AO Project
 
 AO Project lets the user enter their details and submit it to a `REDUX Toolkit` store where the data is stored to be accessed in a modal. It also does an 
 api call to JSON Placeholder to display dummy data.
 
-###Technology Used
+### Technology Used
 
 | [React Js](https://reactjs.org/) | [Redux Toolkit](https://redux-toolkit.js.org/)
 | --- | ---
 | Functional Components only | State Management
 
 
-###Features
+### Features
 
 The `Contact` will direct you to the contact page where the user will be able to enter their details.
 
