@@ -1,8 +1,15 @@
 import React from "react";
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+import {useSelector} from "react-redux";
+import {selectFirstName, selectLastName, selectMobile} from "../features/contatct/contactSlice";
+import DisplayData from "./displayData";
 
 
 const ContactModal = ({ toggleModal, isModalOpen }) => {
+    
+    const firstName = useSelector(selectFirstName)
+    const lastName = useSelector(selectLastName)
+    const mobile = useSelector(selectMobile)
 
     return (
         <>
@@ -13,8 +20,11 @@ const ContactModal = ({ toggleModal, isModalOpen }) => {
                 </ModalHeader>
                 <ModalBody>
                     <div className='row align-items-center'>
-                         <h1>this is a test</h1> 
-                        
+                        <DisplayData
+                            firstName={firstName}    
+                            lastName={lastName}
+                            mobile={mobile}
+                        />
                     </div>
                 </ModalBody>
             </Modal>

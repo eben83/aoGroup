@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import { updateContact } from "../features/contatct/contactSlice";
 import {useDispatch} from "react-redux";
 
-const ContactForm = () => {
+const ContactForm = ({ toggleModal, isModalOpen }) => {
     
     const dispatch = useDispatch()
 
@@ -43,6 +43,8 @@ const ContactForm = () => {
         
         onSubmit: values => {
             dispatch(updateContact(values))
+            toggleModal(!isModalOpen)
+            isModalOpen(true)
         },
         
     });
