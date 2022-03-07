@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, {} from 'react'
 
 const Nav = () => {
 
      // Toggle between showing and hiding the sidebar when clicking the menu icon
-     var mySidebar = document.getElementById("mySidebar");
+     const mySidebar = document.getElementById("mySidebar");
   
         function w3_open() {
             if (mySidebar.style.display === 'block') {
@@ -18,10 +18,10 @@ const Nav = () => {
             mySidebar.style.display = "invisible";
         }
 
-        const [isOpen, setIsOpen] = useState(false)
-        const toggle = () => {
-            setIsOpen(!isOpen)
-        }
+        // const [isOpen, setIsOpen] = useState(false)
+        // const toggle = () => {
+        //     setIsOpen(!isOpen)
+        // }
 
     return (
         <>
@@ -38,7 +38,7 @@ const Nav = () => {
 
                 {/* Hide right-floated links on small screens and replace them with a menu icon */}
 
-                <a href="" className="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onClick={w3_open ? w3_close : w3_open}>
+                <a href="#" className="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onClick={w3_open ? w3_close : w3_open}>
                 <i className="fa fa-bars"></i>
                 </a>
             </div>

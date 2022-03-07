@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice  } from "@reduxjs/toolkit";
 
 const initialState = {
-    firstName: '',
-    lastName: '',
-    mobile: ''
+    firstName: null,
+    lastName: null,
+    mobile: null
 }
 
 const contactSlice = createSlice({
@@ -19,5 +19,9 @@ const contactSlice = createSlice({
 })
 
 export const { updateContact } = contactSlice.actions
+
+export const selectFirstName = (state) => state.contact.firstName
+export const selectLastName = (state) => state.contact.lastName
+export const selectMobile = (state) => state.contact.mobile
 
 export default contactSlice.reducer
