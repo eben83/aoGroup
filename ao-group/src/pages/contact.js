@@ -18,10 +18,10 @@ const Contact = () => {
                 toggleModal={toggleModal}
                 isModalOpen={isModalOpen}
             /> 
-            {/*<ContactModal */}
-            {/*    toggleModal={toggleModal}*/}
-            {/*    isModalOpen={isModalOpen}*/}
-            {/*/>  */}
+            <ContactModal 
+                toggleModal={toggleModal}
+                isModalOpen={isModalOpen}
+            />  
                
         </>
     )
